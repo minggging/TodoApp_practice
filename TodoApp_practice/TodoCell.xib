@@ -10,24 +10,24 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TodoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" rowHeight="88" id="s7T-Fa-Lc8" customClass="TodoCell" customModule="TodoApp_practice" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="404" height="88"/>
+            <rect key="frame" x="0.0" y="0.0" width="401" height="88"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s7T-Fa-Lc8" id="fuP-CY-aAc">
-                <rect key="frame" x="0.0" y="0.0" width="404" height="88"/>
+                <rect key="frame" x="0.0" y="0.0" width="401" height="88"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bGR-qv-vEa">
-                        <rect key="frame" x="0.0" y="0.0" width="404" height="88"/>
+                        <rect key="frame" x="0.0" y="0.0" width="401" height="88"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUy-Ly-r1B">
-                                <rect key="frame" x="8" y="8" width="334" height="72"/>
+                                <rect key="frame" x="8" y="8" width="331" height="72"/>
                                 <color key="backgroundColor" red="0.94269317389999996" green="0.84372699210000002" blue="0.40737940439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AK1-SA-Jdz">
-                                <rect key="frame" x="347" y="8" width="49" height="72"/>
+                                <rect key="frame" x="344" y="8" width="49" height="72"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jd-AA-6VA">
                                         <rect key="frame" x="0.0" y="0.0" width="49" height="41"/>
@@ -58,7 +58,7 @@
             <connections>
                 <outlet property="todos" destination="AUy-Ly-r1B" id="7ap-jE-a0H"/>
             </connections>
-            <point key="canvasLocation" x="274.80916030534348" y="-90.140845070422543"/>
+            <point key="canvasLocation" x="272.51908396946561" y="-90.140845070422543"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class Main: UIViewController {
     
@@ -18,7 +20,7 @@ class Main: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("<#comment#> -", #fileID, #function, #line)
+        print(" -", #fileID, #function, #line)
         
         
         todoTableView.dataSource = self
@@ -28,11 +30,12 @@ class Main: UIViewController {
         let todoCellNib = UINib(nibName: "TodoCell", bundle: .main)
         self.todoTableView.register(todoCellNib, forCellReuseIdentifier: "TodoCell")
         
+        TodosAPI.fetchTodos()
         
     } //viewDidLoad.
     
     @IBAction func addTodo(_ sender: UIButton) {
-        print("<#comment#> -", #fileID, #function, #line)
+        print(" -", #fileID, #function, #line)
         
         guard let todoInput = self.todoTextField.text else { return }
         
@@ -40,19 +43,21 @@ class Main: UIViewController {
         
         self.todoTableView.reloadData()
         
+        TodosAPI.addApiCall(todoInput: todoInput)
         
-        
+        self.todoTextField.text = nil
     } // addTodo.
+    
 }
-
+    
 extension Main : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                print("<#comment#> -", #fileID, #function, #line)
+                print(" -", #fileID, #function, #line)
         return todoList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                print("<#comment#> -", #fileID, #function, #line)
+                print(" -", #fileID, #function, #line)
         let cellData = todoList[indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as? TodoCell else { return UITableViewCell() }
