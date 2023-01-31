@@ -3,47 +3,62 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TodoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" rowHeight="88" id="s7T-Fa-Lc8" customClass="TodoCell" customModule="TodoApp_practice" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="401" height="88"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="TodoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" rowHeight="61" id="s7T-Fa-Lc8" customClass="TodoCell" customModule="TodoApp_practice" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="61"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s7T-Fa-Lc8" id="fuP-CY-aAc">
-                <rect key="frame" x="0.0" y="0.0" width="401" height="88"/>
+                <rect key="frame" x="0.0" y="0.0" width="401" height="61"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bGR-qv-vEa">
-                        <rect key="frame" x="0.0" y="0.0" width="401" height="88"/>
+                    <stackView opaque="NO" contentMode="scaleAspectFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bGR-qv-vEa">
+                        <rect key="frame" x="0.0" y="0.0" width="401" height="61"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPs-NE-X6f">
+                                <rect key="frame" x="8" y="8" width="45" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dv-rR-7h7">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="by0-h5-Jvz"/>
+                                            <constraint firstAttribute="height" constant="45" id="yPn-vS-JA1"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="✅"/>
+                                        <connections>
+                                            <action selector="onDoneBtn:" destination="s7T-Fa-Lc8" eventType="touchUpInside" id="zpc-vP-FeX"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKO-Dd-PcE">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="📌"/>
+                                        <connections>
+                                            <action selector="onClipBtn:" destination="s7T-Fa-Lc8" eventType="touchUpInside" id="dg0-sY-rA7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fKO-Dd-PcE" firstAttribute="bottom" secondItem="7dv-rR-7h7" secondAttribute="bottom" id="5oC-h2-zXC"/>
+                                    <constraint firstItem="fKO-Dd-PcE" firstAttribute="top" secondItem="7dv-rR-7h7" secondAttribute="top" id="891-4V-3AP"/>
+                                    <constraint firstItem="fKO-Dd-PcE" firstAttribute="trailing" secondItem="7dv-rR-7h7" secondAttribute="trailing" id="IW1-GP-MXo"/>
+                                    <constraint firstAttribute="bottom" secondItem="7dv-rR-7h7" secondAttribute="bottom" id="NhO-ba-XjQ"/>
+                                    <constraint firstItem="fKO-Dd-PcE" firstAttribute="leading" secondItem="7dv-rR-7h7" secondAttribute="leading" id="VEJ-L3-P36"/>
+                                    <constraint firstItem="7dv-rR-7h7" firstAttribute="leading" secondItem="HPs-NE-X6f" secondAttribute="leading" id="cSb-bS-Rhr"/>
+                                    <constraint firstItem="7dv-rR-7h7" firstAttribute="top" secondItem="HPs-NE-X6f" secondAttribute="top" id="o4b-qs-dDh"/>
+                                    <constraint firstAttribute="trailing" secondItem="7dv-rR-7h7" secondAttribute="trailing" id="xb6-gZ-fCF"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUy-Ly-r1B">
-                                <rect key="frame" x="8" y="8" width="331" height="72"/>
-                                <color key="backgroundColor" red="0.94269317389999996" green="0.84372699210000002" blue="0.40737940439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="58" y="8" width="335" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AK1-SA-Jdz">
-                                <rect key="frame" x="344" y="8" width="49" height="72"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jd-AA-6VA">
-                                        <rect key="frame" x="0.0" y="0.0" width="49" height="41"/>
-                                        <menu key="menu" id="cnQ-fW-2tZ">
-                                            <children>
-                                                <command title="수정" id="0hl-Qo-2gp"/>
-                                                <command title="삭제" discoverabilityTitle="" id="VSN-EL-vRJ"/>
-                                            </children>
-                                        </menu>
-                                        <state key="normal" image="ellipsis.circle" catalog="system"/>
-                                    </button>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EpC-mz-NGO">
-                                        <rect key="frame" x="0.0" y="41" width="51" height="31"/>
-                                    </switch>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                     </stackView>
@@ -56,12 +71,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="clipBtn" destination="fKO-Dd-PcE" id="VW4-Vw-BTe"/>
+                <outlet property="doneBtn" destination="7dv-rR-7h7" id="M52-t1-gRo"/>
                 <outlet property="todos" destination="AUy-Ly-r1B" id="7ap-jE-a0H"/>
             </connections>
-            <point key="canvasLocation" x="272.51908396946561" y="-90.140845070422543"/>
+            <point key="canvasLocation" x="270.99236641221376" y="-104.5774647887324"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
-    </resources>
 </document>

@@ -8,14 +8,22 @@
 import Foundation
 
 // MARK: - TodosResponse
-struct TodosResponse: Codable {
-    let data: [Datum]?
+struct BaseListResponse<T:Codable>: Codable {
+    let data: [T]?
     let meta: Meta?
     let message: String?
 }
 
-// MARK: - Datum
-struct Datum: Codable {
+
+// MARK: - TodosResponse
+struct TodosResponse: Codable {
+    let data: [Todo]?
+    let meta: Meta?
+    let message: String?
+}
+
+// MARK: - Todo
+struct Todo: Codable {
     let id: Int?
     let title: String?
     let isDone: Bool?

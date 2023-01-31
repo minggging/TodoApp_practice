@@ -15,9 +15,10 @@
 		D213800929827AD8006E097E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D213800729827AD8006E097E /* LaunchScreen.storyboard */; };
 		D213801129827FA3006E097E /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D213801029827FA3006E097E /* TodoCell.xib */; };
 		D213801329828595006E097E /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213801229828595006E097E /* TodoCell.swift */; };
-		D213801529829132006E097E /* ApiCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213801429829132006E097E /* ApiCodable.swift */; };
+		D213801529829132006E097E /* TodosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D213801429829132006E097E /* TodosResponse.swift */; };
+		D260EAA6298916E0004CF69E /* MultipartForm in Frameworks */ = {isa = PBXBuildFile; productRef = D260EAA5298916E0004CF69E /* MultipartForm */; };
 		D2D2452A2983DE9A00670A4A /* TodosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D245292983DE9A00670A4A /* TodosAPI.swift */; };
-		D2D2452C2983EFA400670A4A /* todosVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2452B2983EFA400670A4A /* todosVM.swift */; };
+		D2D2452C2983EFA400670A4A /* TodosVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2452B2983EFA400670A4A /* TodosVM.swift */; };
 		D2FDCB3C2983719900524156 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D2FDCB3B2983719900524156 /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -32,9 +33,9 @@
 		D213800A29827AD8006E097E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D213801029827FA3006E097E /* TodoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 		D213801229828595006E097E /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
-		D213801429829132006E097E /* ApiCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCodable.swift; sourceTree = "<group>"; };
+		D213801429829132006E097E /* TodosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosResponse.swift; sourceTree = "<group>"; };
 		D2D245292983DE9A00670A4A /* TodosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosAPI.swift; sourceTree = "<group>"; };
-		D2D2452B2983EFA400670A4A /* todosVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todosVM.swift; sourceTree = "<group>"; };
+		D2D2452B2983EFA400670A4A /* TodosVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2FDCB3C2983719900524156 /* Alamofire in Frameworks */,
+				D260EAA6298916E0004CF69E /* MultipartForm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,9 +79,9 @@
 				D213800529827AD8006E097E /* Assets.xcassets */,
 				D213800729827AD8006E097E /* LaunchScreen.storyboard */,
 				D213800A29827AD8006E097E /* Info.plist */,
-				D213801429829132006E097E /* ApiCodable.swift */,
+				D213801429829132006E097E /* TodosResponse.swift */,
 				D2D245292983DE9A00670A4A /* TodosAPI.swift */,
-				D2D2452B2983EFA400670A4A /* todosVM.swift */,
+				D2D2452B2983EFA400670A4A /* TodosVM.swift */,
 			);
 			path = TodoApp_practice;
 			sourceTree = "<group>";
@@ -102,6 +104,7 @@
 			name = TodoApp_practice;
 			packageProductDependencies = (
 				D2FDCB3B2983719900524156 /* Alamofire */,
+				D260EAA5298916E0004CF69E /* MultipartForm */,
 			);
 			productName = TodoApp_practice;
 			productReference = D2137FF929827AD7006E097E /* TodoApp_practice.app */;
@@ -133,6 +136,7 @@
 			mainGroup = D2137FF029827AD7006E097E;
 			packageReferences = (
 				D2FDCB3A2983719900524156 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				D260EAA4298916E0004CF69E /* XCRemoteSwiftPackageReference "MultipartForm" */,
 			);
 			productRefGroup = D2137FFA29827AD7006E097E /* Products */;
 			projectDirPath = "";
@@ -165,8 +169,8 @@
 				D2D2452A2983DE9A00670A4A /* TodosAPI.swift in Sources */,
 				D213800129827AD7006E097E /* Main.swift in Sources */,
 				D2137FFD29827AD7006E097E /* AppDelegate.swift in Sources */,
-				D213801529829132006E097E /* ApiCodable.swift in Sources */,
-				D2D2452C2983EFA400670A4A /* todosVM.swift in Sources */,
+				D213801529829132006E097E /* TodosResponse.swift in Sources */,
+				D2D2452C2983EFA400670A4A /* TodosVM.swift in Sources */,
 				D2137FFF29827AD7006E097E /* SceneDelegate.swift in Sources */,
 				D213801329828595006E097E /* TodoCell.swift in Sources */,
 			);
@@ -388,6 +392,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D260EAA4298916E0004CF69E /* XCRemoteSwiftPackageReference "MultipartForm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/davbeck/MultipartForm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		D2FDCB3A2983719900524156 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -399,6 +411,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D260EAA5298916E0004CF69E /* MultipartForm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D260EAA4298916E0004CF69E /* XCRemoteSwiftPackageReference "MultipartForm" */;
+			productName = MultipartForm;
+		};
 		D2FDCB3B2983719900524156 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D2FDCB3A2983719900524156 /* XCRemoteSwiftPackageReference "Alamofire" */;

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LBF-a6-12l">
-                                <rect key="frame" x="0.0" y="235.66666666666669" width="393" height="616.33333333333326"/>
+                                <rect key="frame" x="0.0" y="205.33333333333331" width="393" height="646.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <searchBar contentMode="redraw" placeholder="할 일 검색하기" translatesAutoresizingMaskIntoConstraints="NO" id="9EO-lb-ueK">
@@ -28,8 +28,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="vZD-G6-ghY"/>
                                 </connections>
                             </searchBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AWS-xK-w6n">
-                                <rect key="frame" x="0.0" y="115" width="393" height="120.66666666666669"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="AWS-xK-w6n">
+                                <rect key="frame" x="0.0" y="115" width="393" height="90.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="할 일 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgV-to-HXJ">
                                         <rect key="frame" x="20" y="10" width="353" height="24"/>
@@ -38,26 +38,26 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="f12-HZ-tkr">
-                                        <rect key="frame" x="20" y="42" width="353" height="34.333333333333343"/>
+                                        <rect key="frame" x="20" y="46" width="353" height="34.333333333333343"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="할 일 추가하기" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QVs-Py-wqA">
-                                                <rect key="frame" x="0.0" y="0.0" width="298" height="34.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="295.33333333333331" height="34.333333333333336"/>
                                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZ5-6x-8Hh">
-                                                <rect key="frame" x="306" y="0.0" width="47" height="34.333333333333336"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="✅"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZ5-6x-8Hh">
+                                                <rect key="frame" x="303.33333333333331" y="0.0" width="49.666666666666686" height="34.333333333333336"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
                                                     <action selector="addTodo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLC-S2-5RQ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해야할 일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkR-Rk-Mk2">
-                                        <rect key="frame" x="20" y="84.333333333333343" width="353" height="26.333333333333329"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해야할 일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkR-Rk-Mk2">
+                                        <rect key="frame" x="20" y="80.333333333333343" width="353" height="0.0"/>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -83,6 +83,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="myTodos" destination="QkR-Rk-Mk2" id="DhI-sh-Xk7"/>
                         <outlet property="todoTableView" destination="LBF-a6-12l" id="395-l8-MdL"/>
                         <outlet property="todoTextField" destination="QVs-Py-wqA" id="Hpn-GF-ARV"/>
                     </connections>
