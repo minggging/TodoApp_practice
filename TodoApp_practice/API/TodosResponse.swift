@@ -7,20 +7,20 @@
 
 import Foundation
 
-// MARK: - TodosResponse
+// MARK: - BaseResponse
+struct BaseResponse<T:Codable>: Codable {
+    let data: [T]?
+    let message: String?
+}
+
+
+// MARK: - BaseListResponse
 struct BaseListResponse<T:Codable>: Codable {
     let data: [T]?
     let meta: Meta?
     let message: String?
 }
 
-
-// MARK: - TodosResponse
-struct TodosResponse: Codable {
-    let data: [Todo]?
-    let meta: Meta?
-    let message: String?
-}
 
 // MARK: - Todo
 struct Todo: Codable {
@@ -29,8 +29,9 @@ struct Todo: Codable {
     let isDone: Bool?
     let createdAt, updatedAt: String?
 
-    enum CodingKeys: String, CodingKey {
-        case id, title
+    enum CodingKeys: String, Any, CodingKey {
+        case id
+        case title
         case isDone = "is_done"
         case createdAt = "created_at"
         case updatedAt = "updated_at"
@@ -50,15 +51,3 @@ struct Meta: Codable {
         case to, total
     }
 }
-
-// MARK: - AddTodos
-struct AddTodos: Codable {
-    let title: String?
-    let isDone: Bool?
-
-    enum CodingKeys: String, CodingKey {
-        case title
-        case isDone = "is_done"
-    }
-}
-
