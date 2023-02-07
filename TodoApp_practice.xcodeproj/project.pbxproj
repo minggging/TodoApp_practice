@@ -21,6 +21,7 @@
 		D260EAAA298B5DA1004CF69E /* URL+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260EAA9298B5DA1004CF69E /* URL+Ext.swift */; };
 		D2D2452A2983DE9A00670A4A /* TodosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D245292983DE9A00670A4A /* TodosAPI.swift */; };
 		D2D2452C2983EFA400670A4A /* TodosVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D2452B2983EFA400670A4A /* TodosVM.swift */; };
+		D2D9A0B8298E163700331333 /* Error+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D9A0B7298E163700331333 /* Error+Ext.swift */; };
 		D2FDCB3C2983719900524156 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D2FDCB3B2983719900524156 /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		D260EAA9298B5DA1004CF69E /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
 		D2D245292983DE9A00670A4A /* TodosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosAPI.swift; sourceTree = "<group>"; };
 		D2D2452B2983EFA400670A4A /* TodosVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosVM.swift; sourceTree = "<group>"; };
+		D2D9A0B7298E163700331333 /* Error+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				D260EAA9298B5DA1004CF69E /* URL+Ext.swift */,
 				D24FBB51298B9BD700F3EE5B /* String+Ext.swift */,
+				D2D9A0B7298E163700331333 /* Error+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D9A0B8298E163700331333 /* Error+Ext.swift in Sources */,
 				D24FBB52298B9BD700F3EE5B /* String+Ext.swift in Sources */,
 				D2D2452A2983DE9A00670A4A /* TodosAPI.swift in Sources */,
 				D213800129827AD7006E097E /* Main.swift in Sources */,

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - BaseResponse
 struct BaseResponse<T:Codable>: Codable {
-    let data: [T]?
+    let data: T?
     let message: String?
 }
 
@@ -29,7 +29,7 @@ struct Todo: Codable {
     let isDone: Bool?
     let createdAt, updatedAt: String?
 
-    enum CodingKeys: String, Any, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case id
         case title
         case isDone = "is_done"
@@ -50,4 +50,16 @@ struct Meta: Codable {
         case perPage = "per_page"
         case to, total
     }
+    
+    /// 다음페이지가 있는지 여부
+    /// - Returns: 다음페이지 존재 여부
+    func hasNext() -> Bool {
+        guard let current = currentPage,
+              let last = lastPage else {
+            print("current, last 페이지 정보 없음")
+            return false
+        }
+        return current < last
+    }
+
 }
