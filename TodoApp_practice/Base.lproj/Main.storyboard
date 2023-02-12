@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LBF-a6-12l">
-                                <rect key="frame" x="0.0" y="294.66666666666669" width="393" height="557.33333333333326"/>
+                                <rect key="frame" x="0.0" y="207.66666666666669" width="393" height="644.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <searchBar contentMode="redraw" placeholder="할 일 검색하기" translatesAutoresizingMaskIntoConstraints="NO" id="9EO-lb-ueK">
@@ -29,34 +29,10 @@
                                 </connections>
                             </searchBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="AWS-xK-w6n">
-                                <rect key="frame" x="0.0" y="159" width="393" height="135.66666666666663"/>
+                                <rect key="frame" x="0.0" y="159" width="393" height="48.666666666666657"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="할 일 추가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgV-to-HXJ">
-                                        <rect key="frame" x="20" y="10.000000000000002" width="353" height="28.666666666666671"/>
-                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleAspectFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="f12-HZ-tkr">
-                                        <rect key="frame" x="20" y="50.666666666666657" width="353" height="34.333333333333343"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="할 일 추가하기" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QVs-Py-wqA">
-                                                <rect key="frame" x="0.0" y="0.0" width="295.33333333333331" height="34.333333333333336"/>
-                                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZ5-6x-8Hh">
-                                                <rect key="frame" x="303.33333333333331" y="0.0" width="49.666666666666686" height="34.333333333333336"/>
-                                                <buttonConfiguration key="configuration" style="plain"/>
-                                                <connections>
-                                                    <action selector="addTodo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLC-S2-5RQ"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해야할 일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkR-Rk-Mk2">
-                                        <rect key="frame" x="20" y="97" width="353" height="28.666666666666671"/>
+                                        <rect key="frame" x="20" y="10.000000000000002" width="353" height="28.666666666666671"/>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
                                         <nil key="textColor"/>
@@ -93,10 +69,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="listTitle" destination="QkR-Rk-Mk2" id="nGL-dh-VNq"/>
                         <outlet property="searchBar" destination="9EO-lb-ueK" id="bMW-pF-6Wu"/>
                         <outlet property="todoTableView" destination="LBF-a6-12l" id="395-l8-MdL"/>
-                        <outlet property="todoTextField" destination="QVs-Py-wqA" id="Hpn-GF-ARV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -125,9 +99,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

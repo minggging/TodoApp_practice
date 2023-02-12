@@ -11,10 +11,8 @@ import UIKit
 class TodoCell : UITableViewCell {
     
     @IBOutlet weak var todos : UILabel!
-    
     @IBOutlet weak var clipBtn: UIButton!
     @IBOutlet weak var doneBtn: UIButton!
-    
     
     @IBAction func onClipBtn(_ sender: UIButton) {
         clipBtn.isHidden = true

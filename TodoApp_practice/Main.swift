@@ -13,14 +13,12 @@ class Main: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var todoTableView: UITableView!
-    @IBOutlet weak var todoTextField: UITextField!
-    @IBOutlet weak var listTitle: UILabel!
     
     var subscriptions = Set<AnyCancellable>()
     var viewModel : TodosVM = TodosVM()
     
     var todoList : [Todo] = []
-    
+
     /// 테이블뷰 하단 로딩 인디케이터
     lazy var bottomIndicator : UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .medium)
@@ -117,30 +115,50 @@ class Main: UIViewController {
         
     } //viewDidLoad.
     
+    /// 추가 바버튼 - 얼럿 띄우기 + 추가 api 호출
     @IBAction func addTodoBarBtn(_ sender: UIBarButtonItem) {
+        
+        /// 할 일 추가 얼럿
+        let alertController = UIAlertController(title: "할 일 추가하기", message: "", preferredStyle: .alert)
+        
+        /// 할 일 추가 얼럿 - 추가 버튼
+        let addAction = UIAlertAction(title: "추가", style: UIAlertAction.Style.default, handler: { (action : UIAlertAction!) -> Void in
+            
+            /// 얼럿창 텍스트필드
+            let addTextField = alertController.textFields?.first
+            
+            /// 얼럿 입력값
+            guard let addedTodos = addTextField?.text else { return }
+            
+            self.viewModel.addATodoWithCombine(todoInput: addedTodos)
+
+            
+        })
+        /// 할 일 추가 얼럿 - 취소 버튼
+        let cancelAction = UIAlertAction(title: "취소", style: .destructive, handler: {
+            (action : UIAlertAction!) -> Void in })
+        
+        // 텍스트 필드 추가
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "추가할 할 일을 입력해주세요."
+        }
+
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
-    /// add API 불러오는 버튼
-    @IBAction func addTodo(_ sender: UIButton) {
-        print(" -", #fileID, #function, #line)
-        
-        guard let todoInput = self.todoTextField.text else { return }
-        
-        viewModel.addATodo(todoInput: todoInput)
-        
-        self.todoTextField.text = nil
-    } // addTodo.
-    
-}
+} // class.
 
 //MARK: - UITableViewDataSource
 extension Main : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(" -", #fileID, #function, #line)
+//        print(" -", #fileID, #function, #line)
         return todoList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(" -", #fileID, #function, #line)
+//        print(" -", #fileID, #function, #line)
         let cellData = todoList[indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath) as? TodoCell else { return UITableViewCell() }
@@ -183,7 +201,7 @@ extension Main : UITableViewDelegate {
         let distanceFromBottom = scrollView.contentSize.height - contentYOffset
         
         if distanceFromBottom - 200 < height {
-            viewModel.fetchMore()
+            viewModel.fetchMoreWithCombine()
             print("리스트 하단 추가하기")
 
         }
@@ -224,7 +242,7 @@ extension Main {
     @objc fileprivate func handleRefresh(_ sender: UIRefreshControl) {
         print(" -", #fileID, #function, #line)
         
-        self.viewModel.fetchRefresh()
+        self.viewModel.fetchRefreshWithCombine()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
             sender.endRefreshing()

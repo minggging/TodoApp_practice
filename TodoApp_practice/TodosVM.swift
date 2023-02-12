@@ -7,8 +7,11 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class TodosVM : ObservableObject {
+    
+    var subscriptions = Set<AnyCancellable>()
     
     @Published var todoList : [Todo] = [] {
         didSet {
@@ -40,22 +43,25 @@ class TodosVM : ObservableObject {
             }
         }
     }
+    
+    /// 할 일 추가 완료 이벤트
+    var notifyTodoAdded : (() -> Void)? = nil
 
     /// 다음페이지 있는지  이벤트
     var notifyHasNextPage : ((_ hasNext: Bool) -> Void)? = nil
-
+    
     /// 현재페이지 변경 이벤트
     var notifyCurrentPageChanged : ((Int) -> Void)? = nil
-
+    
     /// 검색결과 없음 여부 이벤트
     var notifySearchDataNotFound : ((_ noContent: Bool) -> Void)? = nil
-
+    
     /// 서치바 관련 DispatchWorkItem
     var searchTermInputWorkItem : DispatchWorkItem? = nil
-
+    
     /// 데이터 변경 이벤트
     var notifyTodosChanged : (([Todo]) -> Void)? = nil
-
+    
     /// 검색어
     var searchTerm: String = "" {
         didSet {
@@ -67,12 +73,12 @@ class TodosVM : ObservableObject {
             }
         }
     }
-
+    
     
     //MARK: - init
     init(){
         print(" -", #fileID, #function, #line)
-        fetchTodos()
+        fetchTodosWithCombine()
     }// init.
     
     /// 할 일 가져오기
@@ -94,9 +100,9 @@ class TodosVM : ObservableObject {
                 switch result {
                 case .success(let todosResponse):
                     self.isLoading = false
-
+                    
                     print("fetchTodos success -", #fileID, #function, #line)
-
+                    
                     if let fetchTodos : [Todo] = todosResponse.data,
                        let pageInfo : Meta = todosResponse.meta {
                         if page == 1 {
@@ -127,7 +133,7 @@ class TodosVM : ObservableObject {
               !isLoading else {
             return print("다음페이지가 없다")
         }
-
+        
         if searchTerm.count > 0 {
             self.searchTodos(searchTerm: searchTerm, page: self.currentPage + 1)
         } else {
@@ -140,7 +146,7 @@ class TodosVM : ObservableObject {
         print(#fileID, #function, #line, "- ")
         self.fetchTodos(page: 1)
     }
-
+    
     
     /// VM - addATodo
     /// : 할 일 추가 API 호출 + todoList에 데이터 추가
@@ -148,14 +154,16 @@ class TodosVM : ObservableObject {
         print(" -", #fileID, #function, #line)
         TodosAPI.addApiCall(todoInput: todoInput,
                             completion: { (result : Result) in
+            
             switch result {
             case .success(let addedTodo):
                 print("success -", #fileID, #function, #line)
-                
-                self.todoList.append(addedTodo)
-                
+                self.isLoading = false
+                self.todoList.insert(addedTodo, at: 0)
             case .failure(let failure):
+                /// 6자 이상 작성 알림창
                 print("addApi Called : Failure : \(failure) ")
+                
             }
         })
     }
@@ -194,7 +202,7 @@ class TodosVM : ObservableObject {
                 switch result {
                 case .success(let response):
                     self.isLoading = false
-
+                    
                     if let searchedTodos : [Todo] = response.data,
                        let pageInfo : Meta = response.meta{
                         if page == 1 {
@@ -204,16 +212,16 @@ class TodosVM : ObservableObject {
                         }
                         self.pageInfo = pageInfo
                     }
-
+                    
                 case .failure(let failure):
                     print("failure: \(failure)")
                     TodosAPI.handleError(failure)
                     self.notifySearchDataNotFound?(true)
                     self.isLoading = false
                 }
-//                self.notifyRefreshEnded?()
+                //                self.notifyRefreshEnded?()
             })
         })
     }
-
+    
 }
